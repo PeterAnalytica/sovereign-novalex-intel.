@@ -6,6 +6,8 @@
     <meta name="theme-color" content="#004a99" />
     <meta name="description" content="Sovereign Novalex: The Apex Digital Public Infrastructure (DPI) for TechReg and vNIN Identity." />
 
+    <link rel="manifest" href="/manifest.json" />
+
     <script>
       window.__ENV = {
         backendURL: "$$BACKEND_URL$$",
@@ -16,15 +18,17 @@
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
 
     <script>
-      // Logic gate for Sandbox vs Mainnet
       const isSandbox = window.__ENV.sandbox === "true";
 
       try {
-        Pi.init({
-          version: "2.0",
-          sandbox: isSandbox,
-        });
-        console.log("Sovereign Novalex: Pi SDK Handshake Initialized.");
+        // Ensuring Pi is available globally
+        if (window.Pi) {
+          window.Pi.init({
+            version: "2.0",
+            sandbox: isSandbox,
+          });
+          console.log("Sovereign Novalex: Pi SDK Handshake Initialized.");
+        }
       } catch (error) {
         console.error("Novalex Critical: Pi SDK failed to load.", error);
       }
