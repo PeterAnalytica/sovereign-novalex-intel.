@@ -1,17 +1,18 @@
 {
-  "name": "demo-app",
+  "name": "sovereign-novalex-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node_modules/.bin/vite",
-    "build": "node_modules/.bin/tsc -b && vite build",
-    "lint": "node_modules/.bin/eslint .",
-    "preview": "node_modules/.bin/vite preview",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@google/genai": "^0.21.0",
     "@mui/icons-material": "^7.3.8",
     "@mui/material": "^7.3.8",
     "@mui/styled-engine-sc": "^7.3.9",
